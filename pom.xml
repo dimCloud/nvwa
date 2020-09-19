@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.dimcloud.nvwa</groupId>
+    <artifactId>nvwa-parent</artifactId>
+    <packaging>pom</packaging>
+    <version>${nvwa.version}</version>
+    <inceptionYear>2020</inceptionYear>
+    <modules>
+        <module>nvwa-project</module>
+        <module>nvwa-boot</module>
+    </modules>
+    <name>nvwa</name>
+    <description>a ddd framework based on Java</description>
+
+    <properties>
+        <nvwa.version>1.0.0.SNAPSHOT</nvwa.version>
+    </properties>
+
+    <organization>
+        <name>dimCloud</name>
+        <url>https://github.com/dimCloud</url>
+    </organization>
+
+    <contributors>
+        <contributor>
+            <name>hehe</name>
+            <url>https://github.com/dimCloud/nvwa</url>
+        </contributor>
+    </contributors>
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://github.com/dimCloud/nvwa/blob/master/LICENSE</url>
+        </license>
+    </licenses>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>1.18.8</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>3.9</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>
