@@ -10,6 +10,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>nvwa-boot</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>nvwa-spring-boot</module>
+    </modules>
 
 
 </project>

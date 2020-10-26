@@ -6,5 +6,8 @@ package org.dimcloud.nvwa.ddd.domain;
  * @author hehe
  * @since 1.0.0
  */
-public interface ValueObject {
+public interface ValueObject<T extends ValueObject> {
+
+    Boolean sameAs(T other);
+
 }

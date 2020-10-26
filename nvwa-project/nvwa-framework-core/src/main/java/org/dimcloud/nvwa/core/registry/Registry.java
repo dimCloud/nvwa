@@ -4,6 +4,8 @@ import org.dimcloud.nvwa.core.base.Command;
 import org.dimcloud.nvwa.core.base.Event;
 import org.dimcloud.nvwa.core.base.Query;
 
+import java.util.concurrent.CopyOnWriteArraySet;
+
 /**
  * command,query,event registry
  *
@@ -13,22 +15,35 @@ import org.dimcloud.nvwa.core.base.Query;
 public interface Registry {
 
     /**
+     * query command event regist
+     * @param listener
+     */
+    void regist(Object listener);
+
+
+    /**
+     * unRegist listener
+     * @param listener
+     */
+    void unRegist(Object listener);
+
+    /**
      * event registry
      * @param event domain event
      */
-    void regist(Event event);
+    CopyOnWriteArraySet<Invoker> getInvokers(Event event);
 
     /**
-     * cmd registry
-     * @param command domain command
+     * event registry
+     * @param command
      */
-    void regist(Command command);
+    Invoker getInvoker(Command command);
 
 
     /**
      * event registry
-     * @param query domain query
+     * @param query
      */
-    void regist(Query query);
+    Invoker getInvoker(Query query);
 
 }

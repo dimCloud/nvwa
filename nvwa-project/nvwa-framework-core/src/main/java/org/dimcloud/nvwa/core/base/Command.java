@@ -6,5 +6,5 @@ package org.dimcloud.nvwa.core.base;
  * @author hehe
  * @since 1.0.0
  */
-public interface Command {
+public interface Command<T> {
 }

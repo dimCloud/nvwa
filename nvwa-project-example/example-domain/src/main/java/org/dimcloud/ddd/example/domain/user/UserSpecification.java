@@ -1,0 +1,25 @@
+package org.dimcloud.ddd.example.domain.user;
+
+import lombok.AllArgsConstructor;
+import org.dimcloud.nvwa.ddd.domain.Specification;
+
+/**
+ * user domain logic
+ *
+ * @author feiyu
+ * 2020/10/26 10:40 上午
+ **/
+@AllArgsConstructor
+public class UserSpecification implements Specification {
+
+    private User user;
+
+    public void registry(UserRepository userRepository){
+        if(userRepository.exist(user.getId())){
+            throw new RuntimeException("already registry");
+        }
+        userRepository.save(user);
+    }
+
+
+}

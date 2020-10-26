@@ -12,6 +12,7 @@
     <modules>
         <module>nvwa-project</module>
         <module>nvwa-boot</module>
+        <module>nvwa-project-example</module>
     </modules>
     <name>nvwa</name>
     <description>a ddd framework based on Java</description>

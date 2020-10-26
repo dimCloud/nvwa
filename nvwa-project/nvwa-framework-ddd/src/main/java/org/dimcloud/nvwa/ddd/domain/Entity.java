@@ -6,14 +6,6 @@ package org.dimcloud.nvwa.ddd.domain;
  * @author hehe
  * @since 1.0.0
  */
-public interface Entity<ID extends Identifier> {
-
-
-
-    /**
-     * domain entity unqic ID
-     * @return ID
-     */
-    ID getId();
+public interface Entity<ID> extends Identity {
 
 }

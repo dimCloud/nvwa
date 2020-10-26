@@ -6,11 +6,11 @@ package org.dimcloud.nvwa.core.dispatch;
  * @author hehe
  * @since 1.0.0
  */
-public interface DispatchCallback {
+public interface DispatchCallback<T> {
 
     /**
      * dispatch async callback
      */
-    void callback();
+    void callback(T ret,Throwable throwable);
 
 }
