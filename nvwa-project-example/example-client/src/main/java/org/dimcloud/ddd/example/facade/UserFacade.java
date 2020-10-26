@@ -5,7 +5,7 @@ import org.dimcloud.ddd.example.facade.dto.cmd.UserRegistryCmd;
 /**
  * user facade
  *
- * @author feiyu
+ * @author hehe
  * 2020/10/26 4:26 下午
  **/
 public interface UserFacade {

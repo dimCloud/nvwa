@@ -6,7 +6,7 @@ import org.dimcloud.ddd.example.infra.db.mybatis.model.UserDO;
 /**
  * user converter
  *
- * @author feiyu
+ * @author hehe
  * 2020/10/26 9:42 下午
  **/
 public class UserConverter {

@@ -15,7 +15,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * nvwa framework autoconfig
  *
- * @author feiyu
+ * @author hehe
  * 2020/10/26 5:49 下午
  **/
 @Configuration

@@ -12,7 +12,7 @@ import org.springframework.web.client.RestTemplate;
 /**
  * rpc user repository
  *
- * @author feiyu
+ * @author hehe
  * 2020/10/26 9:44 下午
  **/
 @Repository

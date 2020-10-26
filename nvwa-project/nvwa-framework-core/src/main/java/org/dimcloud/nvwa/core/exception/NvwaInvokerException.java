@@ -3,7 +3,7 @@ package org.dimcloud.nvwa.core.exception;
 /**
  * description
  *
- * @author feiyu
+ * @author hehe
  * 2020/10/26 7:47 下午
  **/
 public class NvwaInvokerException extends RuntimeException{

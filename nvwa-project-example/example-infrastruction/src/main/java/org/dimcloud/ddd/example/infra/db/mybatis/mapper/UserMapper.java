@@ -9,7 +9,7 @@ import org.dimcloud.ddd.example.infra.db.mybatis.model.UserDO;
 /**
  * dn opt
  *
- * @author feiyu
+ * @author hehe
  * 2020/10/26 9:34 下午
  **/
 @Mapper

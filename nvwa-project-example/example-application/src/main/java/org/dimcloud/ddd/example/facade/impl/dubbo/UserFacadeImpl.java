@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 /**
  * user rpc api with dubbo
  *
- * @author feiyu
+ * @author hehe
  * 2020/10/26 5:27 下午
  **/
 @DubboService(interfaceClass = UserFacade.class)

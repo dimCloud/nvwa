@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * starter
  *
- * @author feiyu
+ * @author hehe
  * 2020/10/26 5:18 下午
  **/
 @SpringBootApplication
