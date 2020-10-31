@@ -16,7 +16,7 @@ import java.util.concurrent.CopyOnWriteArraySet;
 /**
  * NvwaBus default implement
  *
- * @author feiyu
+ * @author hehe
  * 2020/10/26 7:18 下午
  **/
 @AllArgsConstructor

@@ -6,7 +6,7 @@ import org.dimcloud.nvwa.ddd.domain.Specification;
 /**
  * user domain logic
  *
- * @author feiyu
+ * @author hehe
  * 2020/10/26 10:40 上午
  **/
 @AllArgsConstructor

@@ -5,7 +5,7 @@ import org.dimcloud.nvwa.ddd.repository.Repository;
 /**
  * user repository
  *
- * @author feiyu
+ * @author hehe
  * 2020/10/26 10:39 上午
  **/
 public interface UserRepository extends Repository {

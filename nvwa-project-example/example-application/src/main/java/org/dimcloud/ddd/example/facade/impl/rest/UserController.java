@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * user rest api
  *
- * @author feiyu
+ * @author hehe
  * 2020/10/26 5:25 下午
  **/
 @RestController("/user")

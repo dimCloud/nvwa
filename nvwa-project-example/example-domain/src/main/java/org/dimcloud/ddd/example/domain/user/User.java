@@ -7,7 +7,7 @@ import org.dimcloud.nvwa.ddd.domain.Entity;
 /**
  * domain entity
  *
- * @author feiyu
+ * @author hehe
  * 2020/10/26 10:37 上午
  **/
 @AllArgsConstructor

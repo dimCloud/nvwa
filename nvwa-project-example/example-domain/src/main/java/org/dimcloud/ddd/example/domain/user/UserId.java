@@ -6,7 +6,7 @@ import org.dimcloud.nvwa.ddd.domain.Identifier;
 /**
  * user id
  *
- * @author feiyu
+ * @author hehe
  * 2020/10/26 10:26 上午
  **/
 public class UserId implements Identifier<UserId> {

@@ -13,7 +13,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 /**
  * dispatcher implement
  *
- * @author feiyu
+ * @author hehe
  * 2020/10/26 7:27 下午
  **/
 public class DefaultNvwaDispatcher implements Dispatcher{

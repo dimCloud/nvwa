@@ -10,7 +10,7 @@ import java.util.concurrent.CompletableFuture;
 /**
  * bus core
  *
- * @author feiyu
+ * @author hehe
  * 2020/10/26 7:16 下午
  **/
 public interface NvwaBus {

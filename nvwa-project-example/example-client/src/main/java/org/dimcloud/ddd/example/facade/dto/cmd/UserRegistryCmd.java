@@ -6,7 +6,7 @@ import org.dimcloud.nvwa.core.base.Command;
 /**
  * user registry command
  *
- * @author feiyu
+ * @author hehe
  * 2020/10/26 5:15 下午
  **/
 @Data
