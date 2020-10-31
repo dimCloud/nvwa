@@ -7,6 +7,7 @@ import java.lang.reflect.Method;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArraySet;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * Registry default implement
@@ -16,14 +17,42 @@ import java.util.concurrent.CopyOnWriteArraySet;
  **/
 public class DefaultNvwaRegistry implements Registry{
 
-    private final Map<Class<Query>,Invoker> queryInvokers = new ConcurrentHashMap<>();
+    private final Map<Class<Query<?>>,Invoker> queryInvokers = new ConcurrentHashMap<>();
 
-    private final Map<Class<Command>,Invoker> commandInvokers = new ConcurrentHashMap<>();
+    private final Map<Class<Command<?>>,Invoker> commandInvokers = new ConcurrentHashMap<>();
 
     private final Map<Class<Event>, CopyOnWriteArraySet<Invoker>> eventInvokers = new ConcurrentHashMap<>();
 
+    private final ReentrantLock lock = new ReentrantLock();
+
     @Override
     public void regist(@NonNull Object listener){
+        Method[] methods = listener.getClass().getDeclaredMethods();
+        try {
+            lock.lock();
+            for(Method method : methods){
+                if(method.isAnnotationPresent(QueryHandler.class)){
+                    Class clazz = getParameter(method);
+                    queryInvokers.remove(clazz);
+                }else if(method.isAnnotationPresent(EventHandler.class)){
+                    Class clazz = getParameter(method);
+                    commandInvokers.remove(clazz);
+                }else if(method.isAnnotationPresent(CommandHandler.class)){
+                    Class clazz = getParameter(method);
+                    CopyOnWriteArraySet<Invoker> invokers = eventInvokers.get(clazz);
+                    if(invokers != null && !invokers.isEmpty()){
+                        invokers.removeIf( invoker -> invoker.getListener() == listener && invoker.getMethod() == method);
+                        eventInvokers.put(clazz,invokers);
+                    }
+                }
+            }
+        }finally {
+            lock.unlock();
+        }
+    }
+
+    @Override
+    public void unRegist(Object listener){
         Method[] methods = listener.getClass().getDeclaredMethods();
         for(Method method : methods){
             if(method.isAnnotationPresent(QueryHandler.class)){
@@ -36,17 +65,8 @@ public class DefaultNvwaRegistry implements Registry{
         }
     }
 
-    @Override
-    public void unRegist(Object listener){
-        //TODO
-    }
-
     private void registEventInvokers(@NonNull Object listener,@NonNull Method method) {
-        Class[] parameters = method.getParameterTypes();
-        if(parameters.length != 1){
-            throw new IllegalArgumentException("Method " + method + " has @EventHandle annotation, but subscriber methods must require a single argument.");
-        }
-        Class clazz = parameters[0];
+        Class clazz = getParameter(method);
         synchronized (this){
            CopyOnWriteArraySet<Invoker> invokers = eventInvokers.getOrDefault(clazz,new CopyOnWriteArraySet<>());
            invokers.add(new Invoker(listener,method));
@@ -55,11 +75,7 @@ public class DefaultNvwaRegistry implements Registry{
     }
 
     private void registCommandInvoker(@NonNull Object listener,@NonNull Method method) {
-        Class[] parameters = method.getParameterTypes();
-        if(parameters.length != 1){
-            throw new IllegalArgumentException("Method " + method + " has @CommandHandle annotation, but subscriber methods must require a single argument.");
-        }
-        Class clazz = parameters[0];
+        Class clazz = getParameter(method);
         synchronized (this){
             if(commandInvokers.containsKey(clazz)){
                 throw new IllegalArgumentException("@CommandHandle annotation must has exactly one listener method");
@@ -70,11 +86,7 @@ public class DefaultNvwaRegistry implements Registry{
     }
 
     private void registQueryInvoker(@NonNull Object listener,@NonNull Method method) {
-        Class[] parameters = method.getParameterTypes();
-        if(parameters.length != 1){
-            throw new IllegalArgumentException("Method " + method + " has @QueryHandle annotation, but subscriber methods must require a single argument.");
-        }
-        Class clazz = parameters[0];
+        Class clazz = getParameter(method);
         synchronized (this){
             if(queryInvokers.containsKey(clazz)){
                 throw new IllegalArgumentException("@QueryHandle annotation must has exactly one listener method");
@@ -97,5 +109,13 @@ public class DefaultNvwaRegistry implements Registry{
     @Override
     public Invoker getInvoker(Query query) {
         return queryInvokers.get(query.getClass());
+    }
+
+    private Class getParameter(Method method){
+        Class[] parameters = method.getParameterTypes();
+        if(parameters.length != 1){
+            throw new IllegalArgumentException("Method " + method + " has @EventHandle or @CommandHandler or @QueryHandler annotation, but subscriber methods must require a single argument.");
+        }
+        return parameters[0];
     }
 }

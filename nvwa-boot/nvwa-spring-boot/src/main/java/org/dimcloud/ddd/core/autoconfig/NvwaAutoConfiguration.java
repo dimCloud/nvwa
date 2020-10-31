@@ -6,10 +6,8 @@ import org.dimcloud.nvwa.core.dispatch.DefaultNvwaDispatcher;
 import org.dimcloud.nvwa.core.dispatch.Dispatcher;
 import org.dimcloud.nvwa.core.registry.DefaultNvwaRegistry;
 import org.dimcloud.nvwa.core.registry.Registry;
-import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
 
 /**
