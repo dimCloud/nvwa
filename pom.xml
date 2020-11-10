@@ -7,7 +7,7 @@
     <groupId>org.dimcloud.nvwa</groupId>
     <artifactId>nvwa-parent</artifactId>
     <packaging>pom</packaging>
-    <version>${nvwa.version}</version>
+    <version>1.0.0-SNAPSHOT</version>
     <inceptionYear>2020</inceptionYear>
     <modules>
         <module>nvwa-project</module>
@@ -18,7 +18,7 @@
     <description>a ddd framework based on Java</description>
 
     <properties>
-        <nvwa.version>1.0.0.SNAPSHOT</nvwa.version>
+        <nvwa.version>1.0.0-SNAPSHOT</nvwa.version>
     </properties>
 
     <organization>

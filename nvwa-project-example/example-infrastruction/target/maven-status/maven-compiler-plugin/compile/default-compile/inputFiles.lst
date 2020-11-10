@@ -1,0 +1,5 @@
+/Users/redfishero/IdeaProjects/nvwa/nvwa-project-example/example-infrastruction/src/main/java/org/dimcloud/ddd/example/infra/rpc/RpcUserRepository.java
+/Users/redfishero/IdeaProjects/nvwa/nvwa-project-example/example-infrastruction/src/main/java/org/dimcloud/ddd/example/infra/db/mybatis/model/UserDO.java
+/Users/redfishero/IdeaProjects/nvwa/nvwa-project-example/example-infrastruction/src/main/java/org/dimcloud/ddd/example/infra/db/UserRepositoryImpl.java
+/Users/redfishero/IdeaProjects/nvwa/nvwa-project-example/example-infrastruction/src/main/java/org/dimcloud/ddd/example/infra/db/converter/UserConverter.java
+/Users/redfishero/IdeaProjects/nvwa/nvwa-project-example/example-infrastruction/src/main/java/org/dimcloud/ddd/example/infra/db/mybatis/mapper/UserMapper.java

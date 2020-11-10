@@ -1,0 +1,2 @@
+org/dimcloud/ddd/example/facade/UserFacade.class
+org/dimcloud/ddd/example/facade/dto/cmd/UserRegistryCmd.class

@@ -1,0 +1,5 @@
+org/dimcloud/ddd/example/domain/user/PhoneNumber.class
+org/dimcloud/ddd/example/domain/user/User.class
+org/dimcloud/ddd/example/domain/user/UserId.class
+org/dimcloud/ddd/example/domain/user/UserSpecification.class
+org/dimcloud/ddd/example/domain/user/UserRepository.class

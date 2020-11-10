@@ -1,0 +1,6 @@
+org/dimcloud/nvwa/ddd/domain/Specification.class
+org/dimcloud/nvwa/ddd/domain/Identifier.class
+org/dimcloud/nvwa/ddd/domain/Entity.class
+org/dimcloud/nvwa/ddd/repository/Repository.class
+org/dimcloud/nvwa/ddd/domain/ValueObject.class
+org/dimcloud/nvwa/ddd/domain/Identity.class

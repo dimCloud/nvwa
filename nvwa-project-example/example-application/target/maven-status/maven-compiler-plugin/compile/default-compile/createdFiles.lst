@@ -1,0 +1,3 @@
+org/dimcloud/ddd/example/facade/impl/dubbo/UserFacadeImpl.class
+org/dimcloud/ddd/example/service/UserService.class
+org/dimcloud/ddd/example/facade/impl/rest/UserController.class
