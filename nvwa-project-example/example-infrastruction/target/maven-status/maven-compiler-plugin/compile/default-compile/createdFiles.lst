@@ -1,5 +1,0 @@
-org/dimcloud/ddd/example/infra/rpc/RpcUserRepository.class
-org/dimcloud/ddd/example/infra/db/UserRepositoryImpl.class
-org/dimcloud/ddd/example/infra/db/mybatis/model/UserDO.class
-org/dimcloud/ddd/example/infra/db/converter/UserConverter.class
-org/dimcloud/ddd/example/infra/db/mybatis/mapper/UserMapper.class
