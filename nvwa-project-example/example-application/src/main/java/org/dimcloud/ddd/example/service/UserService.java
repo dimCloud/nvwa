@@ -7,6 +7,7 @@ import org.dimcloud.ddd.example.domain.user.UserSpecification;
 import org.dimcloud.ddd.example.facade.dto.cmd.UserRegistryCmd;
 import org.dimcloud.nvwa.core.base.CommandHandler;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 /**
@@ -19,6 +20,7 @@ import org.springframework.stereotype.Service;
 public class UserService {
 
     @Autowired
+    @Qualifier(value = "userRepositoryImpl")
     private UserRepository userRepository;
 
     @CommandHandler(desc = "handle user registry command")
