@@ -4,21 +4,23 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.dimcloud.nvwa</groupId>
+    <groupId>io.github.dimcloud</groupId>
     <artifactId>nvwa-parent</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.3</version>
     <inceptionYear>2020</inceptionYear>
     <modules>
         <module>nvwa-project</module>
         <module>nvwa-boot</module>
-        <module>nvwa-project-example</module>
+<!--        <module>nvwa-project-example</module>-->
     </modules>
     <name>nvwa</name>
     <description>a ddd framework based on Java</description>
+    <url>https://github.com/dimCloud/nvwa</url>
 
     <properties>
-        <nvwa.version>1.0.0-SNAPSHOT</nvwa.version>
+        <nvwa.version>1.0.1</nvwa.version>
+        <compile.version>1.8</compile.version>
     </properties>
 
     <organization>
@@ -38,6 +40,12 @@
             <url>https://github.com/dimCloud/nvwa/blob/master/LICENSE</url>
         </license>
     </licenses>
+    <developers>
+        <developer>
+            <name>hehe</name>
+            <email>blckeeper@gmail.com</email>
+        </developer>
+    </developers>
 
     <dependencyManagement>
         <dependencies>
@@ -54,4 +62,109 @@
         </dependencies>
     </dependencyManagement>
 
+    <scm>
+        <connection>scm:git@github.com:dimCloud/nvwa.git</connection>
+        <developerConnection>scm:git@github.com:dimCloud/nvwa.git</developerConnection>
+        <url>git@github.com:dimCloud/nvwa.git</url>
+    </scm>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>${compile.version}</source>
+                    <target>${compile.version}</target>
+                </configuration>
+            </plugin>
+            <!-- Javadoc -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.1.1</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>release</id>
+            <distributionManagement>
+                <snapshotRepository>
+                    <id>sonatype-nexus</id>
+                    <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+                </snapshotRepository>
+                <repository>
+                    <id>sonatype-nexus</id>
+                    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+                </repository>
+            </distributionManagement>
+            <build>
+                <plugins>
+                    <!-- Source -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <version>3.2.1</version>
+                        <executions>
+                            <execution>
+                                <id>sonatype-nexus</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>jar-no-fork</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <!-- 测试覆盖度 -->
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>cobertura-maven-plugin</artifactId>
+                        <version>2.7</version>
+                        <configuration>
+                            <formats>
+                                <format>html</format>
+                                <format>xml</format>
+                            </formats>
+                            <check />
+                        </configuration>
+                    </plugin>
+                    <!-- Gpg Signature -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>1.6</version>
+                        <executions>
+                            <execution>
+                                <id>sonatype-nexus</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.sonatype.plugins</groupId>
+                        <artifactId>nexus-staging-maven-plugin</artifactId>
+                        <version>1.6.8</version>
+                        <extensions>true</extensions>
+                        <configuration>
+                           <skipStaging>true</skipStaging>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
